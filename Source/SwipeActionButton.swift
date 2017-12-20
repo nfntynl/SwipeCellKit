@@ -10,6 +10,9 @@ import UIKit
 class SwipeActionButton: UIButton {
     var spacing: CGFloat = 8
     var shouldHighlight = true
+    
+    var verticalInset: CGFloat = 0
+    
     var highlightedBackgroundColor: UIColor?
 
     var maximumImageHeight: CGFloat = 0
@@ -22,7 +25,7 @@ class SwipeActionButton: UIButton {
     var alignmentRect: CGRect {
         let contentRect = self.contentRect(forBounds: bounds)
         let titleHeight = titleBoundingRect(with: verticalAlignment == .centerFirstBaseline ? CGRect.infinite.size : contentRect.size).integral.height
-        let totalHeight = maximumImageHeight + titleHeight + currentSpacing
+        let totalHeight = maximumImageHeight + titleHeight + currentSpacing - verticalInset
 
         return contentRect.center(size: CGSize(width: contentRect.width, height: totalHeight))
     }

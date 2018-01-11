@@ -444,7 +444,7 @@ extension SwipeTableViewCell: SwipeActionsViewDelegate {
             case .delete:
                 self?.mask = actionsView.createDeletionMask()
                 
-                tableView.deleteRows(at: [indexPath], with: .none)
+                tableView.deleteSections([indexPath.section], with: .none)
                 
                 UIView.animate(withDuration: 0.3, animations: {
                     self?.center.x = newCenter

@@ -72,7 +72,7 @@ extension SwipeTableViewCell {
         swipeAction.handler?(swipeAction, accessibilityCustomAction.indexPath)
         
         if swipeAction.style == .destructive {
-            tableView.deleteRows(at: [accessibilityCustomAction.indexPath], with: .fade)
+            tableView.deleteSections([accessibilityCustomAction.indexPath.section], with: .fade)
         }
         
         return true
